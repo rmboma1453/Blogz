@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{%  block content %}
+
+
+    <form method='GET'>
+        <header>
+            ,<h1>Home</h1>
+        </header>
+    </form>
+    <div>
+        <h3>Users</h3>
+        {% for user in users %}
+        <ul>
+            <li><a href="/?user={{user.id}}"><i>{{user.email}}</i></a></li>
+        {% endfor %}
+    </ul>
+            
+    </div>
+    <div>
+        <hr>
+        <h3>All Blogs</h3>
+        {% for blog in blogs %}
+            <hr>
+            <div>
+            <h3>{{ blog.title }}</h3></p></a>
+            <p class="body-text">{{ blog.body }}</p>
+            <p>Posted by:<i> <a href="/?id={{blog.owner_id}}">
+            {% for user in users %}
+                {% if blog.owner_id == user.id %}
+                    {{ user.email }}
+                {% endif %}
+            {% endfor %}</i>
+            </a></p>
+        </div>
+        {% endfor %}
+    </div>
+          
+
+{% endblock %}

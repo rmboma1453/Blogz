@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{%  block content %}
+    
+    <form method='POST'>
+        
+    </form>
+
+    
+
+    {% if blogs|length == 0 %}
+    <p>No blogs posted yet</p>
+    {% else %}
+    <ul>
+        {% for blog in blogs %}
+        <label>
+            <a href="/add?id={{blog.id}}"><li>{{blog.title}}</li></a>
+            <p>{{blog.body}}</p>
+        </label>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    
+
+  
+    
+
+    
+{% endblock %}
